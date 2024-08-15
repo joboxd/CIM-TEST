@@ -46,18 +46,71 @@
           <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
         </tr>
       </table>
-
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        aria-label="Select page of GitHub search results">
+      </mat-paginator>
     </div>
     <div class="col-6">
-      <h2>Column2</h2>
+      <!-- <google-map height="400px" width="750px" [center]="center" [zoom]="zoom">
+        <map-marker 
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            (mapClick)="openInfoWindow(marker)"   
+      
+        ></map-marker>
+      
+        <map-info-window #infoWindow>
+          <div>
+            <h2>{{infoWindowContent.title}}</h2>
+            <p>{{infoWindowContent.description}}</p>
+          </div>
+        </map-info-window>
+      </google-map> -->
     </div>
   </div>
   <div class="row">
     <div class="col-6">
       <h2>Column3</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <!-- Fila de encabezado -->
+          <thead>
+            <tr>
+              <th scope="col">Estado</th>
+              <th scope="col">Cantidad</th>
+            </tr>
+          </thead>
+          <!-- Filas de datos -->
+          <tbody>
+            <tr *ngFor="let element of dataSourceOrderMin">
+              <td>{{ element.state }}</td>
+              <td>{{ element.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
     </div>
     <div class="col-6">
       <h2>Column4</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <!-- Fila de encabezado -->
+          <thead>
+            <tr>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Cantidad</th>
+            </tr>
+          </thead>
+          <!-- Filas de datos -->
+          <tbody>
+            <tr *ngFor="let element of dataSourceOrderMax">
+              <td>{{ element.country }}</td>
+              <td>{{ element.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
